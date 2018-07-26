@@ -1,5 +1,4 @@
 from PIL import Image
-from datetime import datetime
 class User:
     friend_dict = {}
     def __init__(self, name, age, rating,status):
@@ -14,15 +13,7 @@ emp2 = User('Dan', 26, 3, 'Active')
 emp3 = User('Sarah', 37, 4, 'Active')
 emp4 = User('Becky', 33, 5, 'Active')
 emp5 = User('Will', 30, 4, 'Inactive')
-'''# Message class
-class Message:
-    # Initializing message time and sender
-    def __init__(self,message,will):
-        self.message = message
-        self.time = datetime.now()
-        self.will = will
-admin = User('Will',30,4,'Inactive')
-'''
+
 sarah_messages=[]
 anna_messages=[]
 becky_messages=[]
@@ -190,12 +181,6 @@ elif wchoice==3:
     import webbrowser
     webbrowser.open(encoded_image_file)
     '''
-
-    '''will_messages=[]
-    print('Enter Message')
-    message=input()
-    will_messages.append(message)
-    print(message)'''
     #switching user so that other user can read the message
     print('Switch User?(enter yes or no)')
     switched_user_choice=input()
@@ -272,113 +257,6 @@ elif wchoice==3:
                     exit()
             else:
                 print('No messages')
-                '''print('Send Message?(yes/no)')
-                sarah_send_message=input()
-                if sarah_send_message=='yes':
-                    print('Choose position of a friend ')
-                    name = ['1.Anna', '2. Dan', '3. Will', '4. Becky']
-                    print(*name, sep = "\n")
-                    chosen_friend=int(input())
-                    chosen_friend_position = int(chosen_friend) - 1
-                    if chosen_friend_position < len(friends):
-                        if chosen_friend==1:
-                            print('Anna')
-                        elif chosen_friend==2:
-                            print('Dan')
-                        elif chosen_friend==3:
-                            print('Will')
-                        elif chosen_friend==4:
-                            print('Becky')
-                        else:
-                            print('Invalid choice')
-                            exit()
-                    else:
-                        print ('Invalid Choice')
-                        exit()
-                    def message():
-                        print('Enter your message')
-                # Choosing a friend
-                        chosen_friend = choose_friend()
-                    from PIL import Image
-                    def encode_image(img, msg):
-                        length = len(msg)
-                    # limit length of message to 255
-                        if length > 255:
-                            print("text too long! (don't exeed 255 characters)")
-                            return False
-                        if img.mode != 'RGB':
-                            print("image mode needs to be RGB")
-                            return False
-                    # use a copy of image to hide the text in
-                        encoded = img.copy()
-                        width, height = img.size
-                        index = 0
-                        for row in range(height):
-                            for col in range(width):
-                                r, g, b = img.getpixel((col, row))
-                            # first value is length of msg
-                                if row == 0 and col == 0 and index < length:
-                                    asc = length
-                                elif index <= length:
-                                    c = msg[index -1]
-                                    asc = ord(c)
-                                else:
-                                    asc = r
-                                encoded.putpixel((col, row), (asc, g , b))
-                                index += 1
-                        return encoded
-                    def decode_image(img):
-                        """
-                         check the red portion of an image (r, g, b) tuple for
-                        hidden message characters (ASCII values)
-                        """
-                        width, height = img.size
-                        msg = ""
-                        index = 0
-                        for row in range(height):
-                            for col in range(width):
-                                try:
-                                    r, g, b = img.getpixel((col, row))
-                                except ValueError:
-                                # need to add transparency a for some .png files
-                                    r, g, b, a = img.getpixel((col, row))
-                            # first pixel r value is length of message
-                                if row == 0 and col == 0:
-                                    length = r
-                                elif index <= length:
-                                    msg += chr(r)
-                                index += 1
-                        return msg
-                # pick a .png or .bmp file you have in the working directory
-                # or give full path name
-                    original_image_file = "picture.png"
-                #original_image_file = "picture.png"
-                    img = Image.open(original_image_file)
-                # image mode needs to be 'RGB'
-                    print(img, img.mode)  # test
-                # create a new filename for the modified/encoded image
-                    encoded_image_file = "enc_" + original_image_file
-                # don't exceed 255 characters in the message
-                    secret_msg = input()
-                    img_encoded = encode_image(img, secret_msg)
-                    if img_encoded:
-                    # save the image with the hidden text
-                        img_encoded.save(encoded_image_file)
-                    # view the saved file, works with Windows only
-                    # behaves like double-clicking on the saved file
-                    if chosen_friend==1:
-                        anna_messages.append(secret_msg)
-                    elif chosen_friend==2:
-                        dan_messages.append(secret_msg)
-                    elif chosen_friend==3:
-                        sarah_messages.append(secret_msg)
-                    elif chosen_friend==4:
-                        becky_messages.append(secret_msg)
-                    else:
-                        print('Message not sent')
-                        exit()
-                elif sarah_send_message=='no':
-                    exit()'''
                 exit()
     elif passa=='annapas':
         print('Hello Anna')
@@ -443,112 +321,6 @@ elif wchoice==3:
                     exit()
             else:
                 print('No messages')
-                '''print('Send Message?(yes/no)')
-                if sarah_send_message=='yes':
-                    print('Choose position of a friend ')
-                    name = ['1.Anna', '2. Dan', '3. Will', '4. Becky']
-                    print(*name, sep = "\n")
-                    chosen_friend=int(input())
-                    chosen_friend_position = int(chosen_friend) - 1
-                    if chosen_friend_position < len(friends):
-                        if chosen_friend==1:
-                            print('Anna')
-                        elif chosen_friend==2:
-                            print('Dan')
-                        elif chosen_friend==3:
-                            print('Will')
-                        elif chosen_friend==4:
-                            print('Becky')
-                        else:
-                            print('Invalid choice')
-                            exit()
-                    else:
-                        print ('Invalid Choice')
-                        exit()
-                    def message():
-                        print('Enter your message')
-                # Choosing a friend
-                        chosen_friend = choose_friend()
-                    from PIL import Image
-                    def encode_image(img, msg):
-                        length = len(msg)
-                    # limit length of message to 255
-                        if length > 255:
-                            print("text too long! (don't exeed 255 characters)")
-                            return False
-                        if img.mode != 'RGB':
-                            print("image mode needs to be RGB")
-                            return False
-                    # use a copy of image to hide the text in
-                        encoded = img.copy()
-                        width, height = img.size
-                        index = 0
-                        for row in range(height):
-                            for col in range(width):
-                                r, g, b = img.getpixel((col, row))
-                            # first value is length of msg
-                                if row == 0 and col == 0 and index < length:
-                                    asc = length
-                                elif index <= length:
-                                    c = msg[index -1]
-                                    asc = ord(c)
-                                else:
-                                    asc = r
-                                encoded.putpixel((col, row), (asc, g , b))
-                                index += 1
-                        return encoded
-                    def decode_image(img):
-                        """
-                         check the red portion of an image (r, g, b) tuple for
-                        hidden message characters (ASCII values)
-                        """
-                        width, height = img.size
-                        msg = ""
-                        index = 0
-                        for row in range(height):
-                            for col in range(width):
-                                try:
-                                    r, g, b = img.getpixel((col, row))
-                                except ValueError:
-                                # need to add transparency a for some .png files
-                                    r, g, b, a = img.getpixel((col, row))
-                            # first pixel r value is length of message
-                                if row == 0 and col == 0:
-                                    length = r
-                                elif index <= length:
-                                    msg += chr(r)
-                                index += 1
-                        return msg
-                # pick a .png or .bmp file you have in the working directory
-                # or give full path name
-                    original_image_file = "picture.png"
-                #original_image_file = "picture.png"
-                    img = Image.open(original_image_file)
-                # image mode needs to be 'RGB'
-                    print(img, img.mode)  # test
-                # create a new filename for the modified/encoded image
-                    encoded_image_file = "enc_" + original_image_file
-                # don't exceed 255 characters in the message
-                    secret_msg = input()
-                    img_encoded = encode_image(img, secret_msg)
-                    if img_encoded:
-                    # save the image with the hidden text
-                        img_encoded.save(encoded_image_file)
-                    # view the saved file, works with Windows only
-                    # behaves like double-clicking on the saved file
-                    if chosen_friend==1:
-                        anna_messages.append(secret_msg)
-                    elif chosen_friend==2:
-                        dan_messages.append(secret_msg)
-                    elif chosen_friend==3:
-                        sarah_messages.append(secret_msg)
-                    elif chosen_friend==4:
-                        becky_messages.append(secret_msg)
-                    else:
-                        print('Message not sent')
-                        exit()
-                elif sarah_send_message=='no':
-                    exit()'''
                 exit()
     elif passa=='beckypas':
         print('Hello Becky')
